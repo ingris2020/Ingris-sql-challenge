@@ -10,10 +10,10 @@ join salaries s on s.emp_no = e.emp_no
 order by emp_no asc;
 
 --2. Employees hired in 1986
-select *
-from employees 
-where hire_date between '1986-01-01' and '1986-12-31'
-order by hire_date asc;
+select e.*
+from employees e 
+where e.hire_date between '1986-01-01' and '1986-12-31'
+order by e.hire_date asc;
 
 --3. Manager of each department with details 
 select d.dept_no,
@@ -40,9 +40,12 @@ join departments d  on d.dept_no = de.dept_no
 order by e.emp_no asc;	   
 
 --5. Employee where first name is "Hercules" and last names begin with "B"
-select *
-from employees 
-where (first_name = 'Hercules' and last_name like 'B%')
+select e.emp_no, 
+	   e.last_name, 
+	   e.first_name, 
+	   e.gender,
+from employees e
+where (e.first_name = 'Hercules' and e.last_name like 'B%')
 order by emp_no asc;
 
 --6.Employees in the Sales department with details
